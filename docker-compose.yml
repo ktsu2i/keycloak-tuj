@@ -1,0 +1,23 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      HOST_IP: ${HOST_IP}
+    ports:
+      - "8080:8080"
+    command:
+      - "start-dev"
+      - "--hostname=${HOST_IP}"
+    volumes:
+      - ./config:/opt/keycloak/data
+    networks:
+      - keycloak-network
+
+volumes:
+  keycloak-data:
+networks:
+  keycloak-network:
+    driver: bridge
