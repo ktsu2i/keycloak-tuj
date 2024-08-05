@@ -1,4 +1,4 @@
-# Keyclok For TUJ Projects
+# Keycloak For TUJ Projects
 
 ## Purpose
 
